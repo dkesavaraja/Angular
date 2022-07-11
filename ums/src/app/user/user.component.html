@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <h2 style="text-decoration:underline;">User Managment System [UMS]</h2>
+    <div class="row my-4">
+        <div class="col-md-3">
+            <h5 style="color:gray;">User Details</h5>
+            <form [formGroup]="userForm" (ngSubmit)="addUser()">
+                <label class="form-label">ID</label>
+                <input type="text" class="formControl mb-2" placeholder="User ID" formControlName="id"/>
+                <br>
+                <label class="form-label">Name</label>
+                <input type="text" class="formControl mb-2" placeholder="Name" formControlName="name"/>
+                <br>
+                <label class="form-label">User Name</label>
+
+                <input type="text" class="formControl mb-2" placeholder="User Name" formControlName="username"/>
+                <br>
+
+                <label class="form-label">Email</label>
+
+                <input type="text" class="formControl mb-2" placeholder="Email" formControlName="email"/>
+                <br>
+                <label class="form-label">Phone</label>
+
+                <input type="text" class="formControl mb-2" placeholder="Phone" formControlName="phone"/>
+                <br>
+                <label class="form-label">Website</label>
+
+                <input type="text" class="formControl mb-2" placeholder="Website" formControlName="website"/>
+                <br>
+                <button type="submit" class="btn btn-primary btn-sm mt-2">Add User</button>
+            </form>
+        </div>
+
+        <div class="col-md-9">
+            <h5 style="color:gray;">User Information</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contents of userInfo;index as i">
+                        <td>{{contents.id}}</td>
+                        <td>{{contents.name}}</td>
+                        <td>{{contents.username}}</td>
+                        <td>{{contents.email}}</td>
+                        <td>{{contents.phone}}</td>
+                        <td>{{contents.website}}</td>
+                        <td><button class="btn btn-outline-warning btn-sm" (click)="updateUser(contents.id,i)">Update</button></td>
+                        <td><button class="btn btn-danger btn-sm" (click) ="deleteUser(contents.id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
